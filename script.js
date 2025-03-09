@@ -23,7 +23,7 @@ let songs = [
     {
         title: "Lonely",
         artist: "Akon",
-        src: "Assets/lonely.mp3",
+        src: "Assets/Lonely.mp3",
         img: "Assets/lonely.jpg"
     }
 ];
