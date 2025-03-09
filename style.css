@@ -31,12 +31,16 @@ body {
     width: 350px;
     padding: 25px 35px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 20px;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 nav .circle {
@@ -95,6 +99,7 @@ nav .circle:hover {
 
 .music-player P {
     font-size: 20px;
+    margin: 5px;
 }
 
 .volume-div {
@@ -123,12 +128,12 @@ nav .circle:hover {
 }
 
 #volume {
-    width: 15%;
+    width: 25%;
     transition: width .3s ease;
 }
 
 #volume:hover {
-    width: 55%;
+    width: 85%;
 }
 
 #progress::-webkit-slider-thumb, #volume::-webkit-slider-thumb {
@@ -191,6 +196,7 @@ nav .circle:hover {
 }
 
 .bottom-div {
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
