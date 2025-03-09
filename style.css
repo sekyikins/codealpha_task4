@@ -1,0 +1,232 @@
+@media(max-width: 750px){
+    * {
+        -webkit-tap-highlight-color: transparent; /* Removes blue highlight */
+        outline: none; /* Removes focus outline */
+    }
+
+    #progress, #volume, #progress::-webkit-slider-thumb, #volume::-webkit-slider-thumb {
+        cursor: default !important;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url('Assets/background.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.music-player {
+    background: rgb(119, 236, 191);
+    max-height: 90vh;
+    width: 350px;
+    padding: 25px 35px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    background: white;
+    color: rgb(17, 96, 66);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 20px 1px rgb(119, 236, 191) inset;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+nav .circle:hover {
+    transform: scale(1.1);
+}
+
+.song-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 50px 20px rgb(0, 0, 0);
+    transition: all .5s ease;
+    animation: rotateImage 5s linear infinite;
+    animation-play-state: paused;
+}
+
+.song-img:hover {
+    box-shadow: 0 0 50px 15px rgb(0, 0, 0);
+}
+@keyframes rotateImage {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotateImage 5s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-player h1 {
+    font-size: 25px;
+    font-weight: 750;
+    margin-top: 10px;
+}
+
+.music-player P {
+    font-size: 20px;
+}
+
+.volume-div {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: left;
+    justify-content: left;
+    width: 100%;
+}
+
+.volume-div p {
+    color: rgb(73, 139, 122);
+    margin-top: 5px;
+    font-size: smaller;
+    width: fit-content;
+}
+
+#progress, #volume {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 6px;
+    background: rgb(17, 96, 66);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#volume {
+    width: 15%;
+    transition: width .3s ease;
+}
+
+#volume:hover {
+    width: 55%;
+}
+
+#progress::-webkit-slider-thumb, #volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #fff;
+    height: 15px;
+    width:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgb(71, 71, 71);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 10px 0 rgb(119, 236, 191) inset;
+    transition: .3s;
+}
+
+#progress:hover::-webkit-slider-thumb {
+    transform: scale(1.2);
+}
+
+#volume:hover::-webkit-slider-thumb {
+    transform: scale(1.2);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+
+.controls div {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    background: white;
+    color: rgb(17, 96, 66);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 20px 1px rgb(119, 236, 191) inset;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    transition: .3s;
+}
+
+.controls div:hover {
+    transform: scale(1.1);
+}
+
+.controls div:nth-child(2) {
+    transform: scale(1.5);
+    background: rgb(17, 96, 66);
+    color: white;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: .3s;
+}
+
+.controls div:hover:nth-child(2) {
+    transform: scale(1.6);
+}
+
+.bottom-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-div button {
+    color: white;
+    width: 150px;
+    height: 20px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 550;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 20px 1px rgb(119, 236, 191) inset;
+    transition: .3s ease-in-out;
+}
+
+.bottom-div button:hover {
+    transform: translate(-8%, -8%);
+    color: rgb(119, 236, 191);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+footer {
+    color: white;
+    position: fixed;
+    background: rgb(0, 0, 0, 0.7);
+    padding: 6px;
+    border-radius: 10px;
+    bottom: 2px;
+}
+
+footer p {
+    font-size: 8px;
+}

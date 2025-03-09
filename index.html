@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUsic Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1006462fc4.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="music-player">
+        <nav>
+            <div class="circle">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="circle" onclick="showList()">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </nav>
+        <img src="Assets/lonely1.jpg" class="song-img" id="song-img" alt="song-img">
+        <h1 class="song-title">Diamonds</h1>
+        <p class="artist">Rihanna</p>
+
+        <audio id="song">
+            <source src="Assets/Diamonds.mp3" type="audio/mpeg">
+        </audio>
+
+        <input type="range" value="0" name="progress" id="progress">
+
+        <div class="controls">
+            <div onclick="previous()"><i class="fa-solid fa-backward"></i></div>
+            <div onclick="playPause()"><i class="fa-solid fa-play" id="playPauseIcon"></i></div>
+            <div onclick="next()"><i class="fa-solid fa-forward"></i></div>
+        </div>
+
+        <div class="bottom-div">
+            <div class="volume-div">
+                <input type="range" value="40" name="volume" id="volume" min="0" max="100">
+                <p class="volume-p">Volume</p>
+            </div>
+            <button onclick="downloadSong()" id="download">Download</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025_Music PLayer by Mr. Sekyi. All_rights_reserved.</p>
+    </footer>
+</body>
+</html>
