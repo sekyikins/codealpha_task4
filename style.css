@@ -1,9 +1,4 @@
 @media(max-width: 750px){
-    * {
-        -webkit-tap-highlight-color: transparent; /* Removes blue highlight */
-        outline: none; /* Removes focus outline */
-    }
-
     #progress, #volume, #progress::-webkit-slider-thumb, #volume::-webkit-slider-thumb {
         cursor: default !important;
     }
@@ -14,6 +9,8 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Removes blue highlight */
+    outline: none; /* Removes focus outline */
 }
 
 body {
@@ -200,7 +197,7 @@ nav .circle:hover {
 }
 
 .bottom-div button {
-    color: white;
+    color: rgb(67, 67, 67);
     width: 150px;
     height: 20px;
     font-size: 15px;
@@ -214,7 +211,7 @@ nav .circle:hover {
 
 .bottom-div button:hover {
     transform: translate(-8%, -8%);
-    color: rgb(119, 236, 191);
+    color: rgb(64, 124, 101);
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
