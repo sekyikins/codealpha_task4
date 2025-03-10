@@ -6,7 +6,7 @@ let songImg = document.getElementById("song-img");
 let songTitle = document.querySelector(".song-title");
 let songArtist = document.querySelector(".artist");
 
-// 🎵 Array of songs
+// List of songs
 let songs = [
     {
         title: "Diamonds",
@@ -30,7 +30,7 @@ let songs = [
 
 let currentSongIndex = Math.floor(Math.random() * songs.length);
 
-// 🔄 Function to Load a Song
+// Function to Load a Song
 function loadSong(index) {
     let selectedSong = songs[index];
     song.src = selectedSong.src;
@@ -57,7 +57,12 @@ progress.addEventListener("input", function () {
     song.currentTime = progress.value; // Sync slider with playback
 });
 
-// ▶️ Function to Play or Pause Song
+// Function to refresh page
+function refresh() {
+    location.reload();
+}
+
+// Function to Play or Pause Song
 function playPause() {
     if (song.paused) {
         song.play();
@@ -73,7 +78,7 @@ function playPause() {
     }
 }
 
-// ⏭ Function to Play Next Song
+// Function to Play Next Song
 function next() {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     let wasPlaying = !song.paused;
@@ -91,7 +96,7 @@ function next() {
     }
 }
 
-// ⏮ Function to Play Previous Song
+// Function to Play Previous Song
 function previous() {
     currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
     let wasPlaying = !song.paused;
@@ -113,7 +118,7 @@ function downloadSong() {
     const songTitle = document.querySelector(".song-title").textContent;
     const songArtist = document.querySelector(".artist").textContent;
 
-    const download = confirm(`Download "${songTitle}" by ${songArtist}`);
+    const download = confirm(`Download "${songTitle}" by ${songArtist}?`);
         if (download) {
             const link = document.createElement('a');
             link.href = song.src;
@@ -124,7 +129,7 @@ function downloadSong() {
         }
 }
 
-// 🎧 Auto-Play Next Song When Current Song Ends
+// Auto-Play Next Song When Current Song Ends
 song.addEventListener("ended", function () {
     next(); // Move to the next song
     song.play(); // Ensure the next song starts playing
@@ -133,13 +138,13 @@ song.addEventListener("ended", function () {
 });
 
 
-// 🎚️ Volume Control
+// Volume Control
 song.volume = volume.value / 100;
 volume.addEventListener("input", function () {
     song.volume = volume.value / 100;
 });
 
-// ⏳ Update Progress Bar
+// Update Progress Bar
 setInterval(() => {
     if (!song.paused) {
         progress.value = song.currentTime;
@@ -150,7 +155,7 @@ progress.onchange = function () {
     song.currentTime = progress.value;
 };
 
-// ⏯️ Space Bar Controls Play/Pause
+// Space Bar Controls Play/Pause
 document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
         event.preventDefault();

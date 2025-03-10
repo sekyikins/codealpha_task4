@@ -11,14 +11,14 @@
 <body>
     <div class="music-player">
         <nav>
-            <div class="circle">
-                <i class="fa-solid fa-angle-left"></i>
+            <div class="circle" onclick="refresh()">
+                <i class="fa-solid fa-rotate"></i>
             </div>
             <div class="circle" onclick="showList()">
                 <i class="fa-solid fa-bars-staggered"></i>
             </div>
         </nav>
-        <img src="Assets/lonely1.jpg" class="song-img" id="song-img" alt="song-img">
+        <img src="" class="song-img" id="song-img" alt="song-img">
         <h1 class="song-title"></h1>
         <p class="artist"></p>
 
@@ -39,7 +39,9 @@
                 <input type="range" value="40" name="volume" id="volume" min="0" max="100">
                 <p class="volume-p">Volume</p>
             </div>
-            <button onclick="downloadSong()" id="download">Download</button>
+            <div class="download-button" onclick="downloadSong()" id="download">
+                <i class="fa-solid fa-download"></i>
+            </div>
         </div>
     </div>
     <footer>
