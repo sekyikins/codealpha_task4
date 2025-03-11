@@ -25,7 +25,19 @@ let songs = [
         artist: "Akon",
         src: "Assets/Lonely.mp3",
         img: "Assets/lonely.jpg"
-    }
+    },
+    {
+        title: "Mask-Off",
+        artist: "Future",
+        src: "Assets/MaskOff.mp3",
+        img: "Assets/35.jpg"
+    },
+    {
+        title: "Young Forever",
+        artist: "Jay-Z ft Mr. Hudson",
+        src: "Assets/Young Forever.mp3",
+        img: "Assets/49.jpg"
+    },
 ];
 
 let currentSongIndex = Math.floor(Math.random() * songs.length);
@@ -135,6 +147,7 @@ song.addEventListener("ended", function () {
     song.play(); // Ensure the next song starts playing
     playPauseIcon.classList.add("fa-pause");
     playPauseIcon.classList.remove("fa-play");
+    songImg.style.animationPlayState = "running";
 });
 
 
@@ -155,7 +168,7 @@ progress.onchange = function () {
     song.currentTime = progress.value;
 };
 
-// Space Bar Controls Play/Pause
+// Keyboard Controls
 document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
         event.preventDefault();
@@ -170,14 +183,28 @@ document.addEventListener("keydown", function (event) {
         previous();
     }
     else if (event.code === "ArrowLeft") { 
-        // Left Arrow → Rewind 5 seconds
+        // Left Arrow for Rewind 5 seconds
         song.currentTime = Math.max(song.currentTime - 5, 0);
     }
     else if (event.code === "ArrowRight") { 
-        // Right Arrow → Forward 5 seconds
+        // Right Arrow fow Forward 5 seconds
         song.currentTime = Math.min(song.currentTime + 5, song.duration);
     }
 });
+
+document.addEventListener("keydown", function (event) {
+    if (event.code === "ArrowUp") {
+        event.preventDefault();
+        song.volume = Math.min(song.volume + 0.1, 1); // Increase volume by 10%
+        volume.value = song.volume * 100; // Update the slider
+    } 
+    else if (event.code === "ArrowDown") {
+        event.preventDefault();
+        song.volume = Math.max(song.volume - 0.1, 0); // Decrease volume by 10%
+        volume.value = song.volume * 100; // Update the slider
+    }
+});
+
 
 // 🔄 Load the first song when page loads
 loadSong(currentSongIndex);

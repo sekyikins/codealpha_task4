@@ -27,7 +27,7 @@ body {
 
 .music-player {
     background: rgb(119, 236, 191);
-    max-height: 90vh;
+    height: fit-content;
     width: 350px;
     padding: 25px 35px;
     text-align: center;
@@ -58,8 +58,16 @@ nav .circle {
     transition: .3s;
 }
 
+nav .circle:nth-child(1) {
+    transition: .6s;
+}
+
 nav .circle:hover {
     transform: scale(1.1);
+}
+
+nav .circle:hover:nth-child(1) {
+    transform: scale(1.1) rotate(360deg);
 }
 
 .song-img {
@@ -68,6 +76,8 @@ nav .circle:hover {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid #fff;
+    -webkit-user-drag: none;
+    user-select: none;
     box-shadow: 0 0 50px 20px rgb(0, 0, 0);
     transition: all .5s ease;
     animation: rotateImage 5s linear infinite;
@@ -91,15 +101,16 @@ nav .circle:hover {
     animation-play-state: paused;
 }
 
-.music-player h1 {
+.music-player .song-title {
     font-size: 25px;
     font-weight: 750;
     margin-top: 10px;
+    cursor: default;
 }
 
-.music-player P {
-    font-size: 20px;
-    margin: 5px;
+.music-player .artist {
+    margin-bottom: 10px;
+    cursor: default;
 }
 
 .volume-div {
@@ -116,6 +127,8 @@ nav .circle:hover {
     margin-top: 5px;
     font-size: smaller;
     width: fit-content;
+    cursor: default;
+    -webkit-user-select: none;
 }
 
 #progress, #volume {
@@ -124,7 +137,7 @@ nav .circle:hover {
     height: 6px;
     background: rgb(17, 96, 66);
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 #volume {
@@ -142,7 +155,7 @@ nav .circle:hover {
     height: 15px;
     width:15px;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: pointer !important;
     border: 1px solid rgb(71, 71, 71);
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 10px 0 rgb(119, 236, 191) inset;
     transition: .3s;
@@ -210,7 +223,7 @@ nav .circle:hover {
 }
 
 .bottom-div .download-button:hover {
-    transform: rotate(-180deg) scale(1.2);
+    transform: rotate(360deg) scale(1.2);
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
